@@ -29,7 +29,7 @@
       <li th:each="err : ${#fields.errors('all')}" th:text="${err}"></li>
     </ul>
     <div class="col-sm-12">
-      <div class="sub-title">お客様情報</div>
+      <div class="sub-title">お客様情報（必須項目）</div>
       <table class="table table-bordered">
         <col span="1" style="background-color: #FFFFFF;">
         <col span="2" style="background-color: #FFFFFF;">
@@ -83,6 +83,11 @@
           <th>お届け先住所（市区町村以下）</th>
           <td><span th:text="*{newAddress}"></span></td>
           <input type="hidden" name="newAddress" id="newAddress" th:value="*{newAddress}"/>
+        </tr>
+        <tr>
+          <th>引っ越し時期</th>
+          <td><span th:text="*{season}"></span></td>
+          <input type="hidden" name="season" id="season" th:value="*{season}"/>
         </tr>
         </tbody>
       </table>

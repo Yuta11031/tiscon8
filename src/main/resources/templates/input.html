@@ -31,11 +31,11 @@
           <input type="text" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
         </div>
         <div class="form-group">
-          <label for="tel">連絡先TEL</label>
+          <label for="tel">連絡先TEL ※半角数字のみ</label>
           <input type="tel" id="tel" name="tel" th:field="*{tel}" class="form-control" value="03-1234-5678"/>
         </div>
         <div class="form-group">
-          <label for="email">連絡先メールアドレス</label>
+          <label for="email">連絡先メールアドレス ※＠マークを含めた半角英数字</label>
           <input type="text" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com"/>
         </div>
         <div class="sub-title">集荷元・お届け先</div>
@@ -51,7 +51,7 @@
                  class="form-control" value="新宿区西新宿1-1-1"/>
         </div>
         <div class="form-group">
-          <label for="newPrefectureId">お届け先住所（都道府県）</label>
+          <label for="newPrefectureId">お届け先住所（都道府県）※集荷元住所と異なる住所を入力してください</label>
           <select id="newPrefectureId" name="newPrefectureId" class="form-control">
             <option th:each="prefecture : ${prefectures}" th:value="${prefecture.prefectureId}" th:field="*{newPrefectureId}">[[${prefecture.prefectureName}]]</option>
           </select>
@@ -61,25 +61,78 @@
           <input type="text" id="newAddress" name="newAddress" th:field="*{newAddress}" class="form-control"
                  value="札幌市南区1"/>
         </div>
+        <div class="form-group">
+          <label for="season">引っ越し時期</label>
+          <select id="season" name="season" th:field="*{season}" class="form-control">
+            <option th:value="3月-4月" th:text="3月-4月">3~4月</option>
+            <option th:value="9月" th:text="9月">9月</option>
+            <option th:value="その他" th:text="その他">その他の月</option>
+          </select>
+        </div>
       </fieldset>
       <fieldset>
-      <div class="sub-title">お荷物情報</div>
+      <div class="sub-title">お荷物情報 </div>
         <div class="form-group">
           <label for="box">段ボールの個数</label>
-          <input type="text" id="box" name="box" th:field="*{box}" class="form-control" value="10"/>
-        </div>
+          <select id="box" name="box" th:field="*{box}" class="form-control">
+            <option th:value="10" th:int="10">10</option>
+            <option th:value="20" th:int="20">20</option>
+            <option th:value="30" th:int="30">30</option>
+            <option th:value="40" th:int="40">40</option>
+            <option th:value="50" th:int="50">50</option>
+            <option th:value="60" th:int="60">60</option>
+            <option th:value="70" th:int="70">70</option>
+            <option th:value="80" th:int="80">80</option>
+            <option th:value="90" th:int="90">90</option>
+            <option th:value="100" th:int="100">100</option>
+            <option th:value="110" th:int="110">110</option>
+            <option th:value="120" th:int="120">120</option>
+            <option th:value="130" th:int="130">130</option>
+            <option th:value="140" th:int="140">140</option>
+            <option th:value="150" th:int="150">150</option>
+            <option th:value="160" th:int="160">160</option>
+            <option th:value="170" th:int="170">170</option>
+            <option th:value="180" th:int="180">180</option>
+            <option th:value="190" th:int="190">190</option>
+            <option th:value="200" th:int="200">200</option>
+          </select>        </div>
         <div class="form-group">
           <label for="bed">ベッドの個数</label>
-          <input type="text" id="bed" name="bed" th:field="*{bed}" class="form-control" value="3"/>
+          <select id="bed" name="bed" th:field="*{bed}" class="form-control">
+            <option th:value="0" th:int="0">0</option>
+            <option th:value="1" th:int="1">1</option>
+            <option th:value="2" th:int="2">2</option>
+            <option th:value="3" th:int="3">3</option>
+            <option th:value="4" th:int="4">4</option>
+            <option th:value="5" th:int="5">5</option>
+            
+
+          </select>
         </div>
         <div class="form-group">
           <label for="bicycle">自転車の個数</label>
-          <input type="text" id="bicycle" name="bicycle" th:field="*{bicycle}" class="form-control" value="1"/>
+          <select id="bicycle" name="bicycle" th:field="*{bicycle}" class="form-control">
+            <option th:value="0" th:int="0">0</option>
+            <option th:value="1" th:int="1">1</option>
+            <option th:value="2" th:int="2">2</option>
+            <option th:value="3" th:int="3">3</option>
+            <option th:value="4" th:int="4">4</option>
+            <option th:value="5" th:int="5">5</option>
+            <option th:value="6" th:int="6">6</option>
+            <option th:value="7" th:int="7">7</option>
+            <option th:value="8" th:int="8">8</option>
+            <option th:value="9" th:int="9">9</option>
+            <option th:value="10" th:int="10">10</option>            
+          </select>
         </div>
         <div class="form-group">
           <label for="washingMachine">洗濯機の個数</label>
-          <input type="text" id="washingMachine" name="washingMachine" th:field="*{washingMachine}" class="form-control"
-                 value="1"/>
+          <select id="washingMachine" name="washingMachine" th:field="*{washingMachine}" class="form-control">
+            <option th:value="0" th:int="0">0</option>
+             <option th:value="1" th:int="1">1</option>
+             <option th:value="2" th:int="2">2</option>
+           
+           </select>
         </div>
         <div class="form-group">
           <label for="washingMachineInstallation">洗濯機の設置工事申し込み</label>

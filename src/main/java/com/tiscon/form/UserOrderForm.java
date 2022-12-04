@@ -13,43 +13,45 @@ import javax.validation.constraints.NotNull;
  */
 public class UserOrderForm {
 
-    @NotBlank
+    @NotBlank(message = "「氏名」を入力してください")
     private String customerName;
 
-    @NotBlank
-    @Numeric
+    @NotBlank(message = "「連絡先TEL」を入力してください")
+    @Numeric(message = "「連絡先TEL」を半角数字で入力してください")
     private String tel;
 
     @Email
-    @NotBlank
+    @NotBlank(message = "「連絡先メールアドレス」 を入力してください")
     private String email;
 
     @NotBlank
     private String oldPrefectureId;
 
-    @NotBlank
+    @NotBlank(message = "「集荷元住所（市区町村以下）」を入力してください")
     private String oldAddress;
 
     @NotBlank
     private String newPrefectureId;
 
-    @NotBlank
+    @NotBlank(message = "「お届け先住所（市区町村以下）」を入力してください")
     private String newAddress;
 
-    @Numeric
-    @NotBlank
+    private String season;
+
+    @Numeric(message = "「段ボールの個数」を半角数字で入力してください")
+    @NotBlank(message = "「段ボールの個数」を入力してください")
     private String box;
 
-    @Numeric
-    @NotBlank
+    @Numeric(message = "「ベッドの個数」を半角数字で入力してください")
+    @NotBlank(message = "「ベッドの個数」を入力してください")
     private String bed;
 
-    @Numeric
-    @NotBlank
+    @Numeric(message = "「自転車の個数」を半角数字で入力してください")
+    @NotBlank(message = "「自転車の個数」を入力してください")
     private String bicycle;
 
-    @Numeric
-    @NotBlank
+    @Numeric(message = "「洗濯機の個数」を半角数字で入力してください")
+    @NotBlank(message = "「洗濯機の個数」を入力してください")
     private String washingMachine;
 
     @NotNull
@@ -109,6 +111,14 @@ public class UserOrderForm {
 
     public void setNewAddress(String newAddress) {
         this.newAddress = newAddress;
+    }
+
+    public String getSeason(){
+        return season;
+    }
+
+    public void setSeason(String season){
+        this.season=season;
     }
 
     public String getBox() {
